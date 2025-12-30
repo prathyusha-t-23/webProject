@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tint & Tone - Makeup & Skincare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- header -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">Tint & Tone</div>
+
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <!-- Mobile -->
+                <button class="menu-toggle" id="menu-toggle">☰</button>
+
+                <button id="cart-icon" class="cart-icon">🛒<span id="cart-count">0</span></button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- home -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Where Makeup Meets Skin Care</h1>
+                <p>
+                    Tint & Tone brings together lightweight makeup and gentle skincare 
+                    for a soft, natural everyday glow.
+                </p>
+                <a href="#products" class="btn primary-btn">Shop Essentials</a>
+            </div>
+
+            
+        </div>
+    </section>
+    <section class="section category-section">
+    <div class="container">
+        <h2 class="section-title">What Are You Looking For?</h2>
+        <p class="section-subtitle">
+            Choose a category to explore products made just for you.
+        </p>
+
+        <div class="category-grid">
+            <div class="category-card" data-category="makeup">
+                <img src="images/makeup-category.jpg" alt="Makeup">
+                <h3>Makeup</h3>
+            </div>
+
+            <div class="category-card" data-category="skincare">
+                <img src="images/skincare-category.jpg" alt="Skincare">
+                <h3>Skincare</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- PRODUCTS SECTION -->
+    <section id="products" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <p class="section-subtitle">
+                A simple curated collection of everyday makeup & skincare essentials.
+            </p>
+
+
+
+            <!-- MAKEUP PRODUCTS -->
+            <div class="products-grid" data-content="makeup">
+                <article class="product-card">
+                    <img src="images/lip-oil.jpg" alt="Lip Oil" class="product-img">
+                    <h3>Lip Oil</h3>
+                    <p>A glossy, hydrating lip oil that feels light and non-sticky.</p>
+                    <span class="tag">Makeup</span>
+                    <p class="price">₹399</p>
+                    <button class="add-cart-btn" 
+                    data-name="Lip Oil" 
+                    data-price="399">
+                    Add to Cart
+                    </button>
+                </article>
+
+                <article class="product-card">
+                     <img src="images/blush.jpg" alt="Blush" class="product-img">
+                    <h3>Cream Blush Stick</h3>
+                    <p>Blendable, natural-looking blush for a soft flush.</p>
+                    <span class="tag">Makeup</span>
+                    <p class="price">₹499</p>
+                    <button class="add-cart-btn" 
+                    data-name="Cream Blush Stick" 
+                    data-price="499">
+                    Add to Cart
+                    </button>
+                </article>
+
+                <article class="product-card">
+                     <img src="images/skin-tint.jpg" alt="Skin Tint" class="product-img">
+                    <h3>Skin Tint</h3>
+                    <p>Lightweight daily skin tint for natural, even coverage.</p>
+                    <span class="tag">Makeup</span>
+                    <p class="price">₹699</p>
+                    <button class="add-cart-btn" 
+                    data-name="Skin Tint" 
+                    data-price="699">
+                    Add to Cart
+                    </button>
+                </article>
+            </div>
+
+            <!-- SKINCARE PRODUCTS -->
+            <div class="products-grid hidden" data-content="skincare">
+                <article class="product-card">
+                     <img src="images/face-mist.jpg" alt="Face Mist" class="product-img">
+                    <h3>Hydrating Face Mist</h3>
+                    <p>A refreshing mist to hydrate and soothe your skin.</p>
+                    <span class="tag">Skincare</span>
+                    <p class="price">₹299</p>
+                    <button class="add-cart-btn" 
+                    data-name="Hydrating Face Mist" 
+                    data-price="299">
+                    Add to Cart
+                    </button>
+                </article>
+
+                <article class="product-card">
+                     <img src="images/serum.jpg" alt="Serum" class="product-img">
+                    <h3>Vitamin C Serum</h3>
+                    <p>Brightens skin and fades dark spots gently over time.</p>
+                    <span class="tag">Skincare</span>
+                    <p class="price">₹599</p>
+                    <button class="add-cart-btn" 
+                    data-name="Vitamin C Serum" 
+                    data-price="599">
+                    Add to Cart
+                    </button>
+                </article>
+
+                <article class="product-card">
+                     <img src="images/moisturizer.jpg" alt="Moisturizer" class="product-img">
+                    <h3>Gel Moisturizer</h3>
+                    <p>Lightweight hydrating gel perfect for daily use.</p>
+                    <span class="tag">Skincare</span>
+                    <p class="price">₹349</p>
+                    <button class="add-cart-btn" 
+                    data-name="Gel Moisturizer" 
+                    data-price="349">
+                    Add to Cart
+                    </button>
+                </article>
+            </div>
+        </div>
+    </section>
+    <!-- REVIEWS SECTION -->
+<section class="section reviews-section">
+    <div class="container">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-subtitle">
+            Real experiences from people who love Tint & Tone.
+        </p>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">
+                    “The lip oil feels super light and keeps my lips hydrated all day.”
+                </p>
+                <p class="review-author">— Ananya, Bangalore</p>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">★★★★☆</div>
+                <p class="review-text">
+                    “Skin tint blends beautifully and looks very natural on my skin.”
+                </p>
+                <p class="review-author">— Riya, Hyderabad</p>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">
+                    “Vitamin C serum gave my skin a healthy glow in just a few weeks.”
+                </p>
+                <p class="review-author">— Meera, Chennai</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section section-alt">
+        <div class="container">
+            <div class="about-text">
+                <h2 class="section-title">About Tint & Tone</h2>
+                <p>
+                    Tint & Tone is a minimalist beauty brand focused on clean, gentle, 
+                    skin-loving formulas. Our goal is simple — enhance your natural 
+                    beauty without overwhelming your skin.
+                </p>
+                <p>
+                    With a small, curated range of essentials, we make beauty easy 
+                    for everyone — beginners or pros.
+                </p>
+                <br>
+                <p>Why Choose Tint&Tone?</p>
+                <p>Lightweight, breathable formulas<br>
+                    Minimalist everyday beauty<br>
+                    Gentle skincare for all skin types</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">
+                Have questions? Want to know more about a product? We're here for you.
+            </p>
+
+            <form id="contact-form" class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="product">Interested Product (optional)</label>
+                    <select id="product">
+                        <option value="">Select a product</option>
+                        <option value="Lip Oil">Lip Oil</option>
+                        <option value="Cream Blush Stick">Cream Blush Stick</option>
+                        <option value="Skin Tint">Skin Tint</option>
+                        <option value="Hydrating Face Mist">Hydrating Face Mist</option>
+                        <option value="Vitamin C Serum">Vitamin C Serum</option>
+                        <option value="Gel Moisturizer">Gel Moisturizer</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" rows="4" required></textarea>
+                </div>
+
+                <button type="submit" class="btn primary-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+    <div id="cart" class="cart">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+
+    <div class="cart-total">
+        <p>Total: ₹<span id="total-price">0</span></p>
+    </div>
+    <button id="buy-now" class="btn primary-btn">Buy Now</button>
+    <button id="close-cart" class="btn primary-btn">Close Cart</button>
+</div>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2025 Tint & Tone. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
