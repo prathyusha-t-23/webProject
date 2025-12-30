@@ -1,3 +1,4 @@
+/* ---------- Mobile Menu Toggle ---------- */
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
@@ -6,20 +7,25 @@ menuToggle.addEventListener("click", () => {
 });
 
 
-
-// Simple contact form handler
+/* ---------- Contact Form ---------- */
 const contactForm = document.getElementById("contact-form");
 
 contactForm.addEventListener("submit", (e) => {
-    e.preventDefault(); // stop real submit for now
-
-    // Just show an alert (later you will connect to DB / file)
+    e.preventDefault();
     alert("Thank you! Your message has been received.");
-
-    // Optional: reset the form
     contactForm.reset();
 });
+
+
+/* ---------- Cart Logic ---------- */
+
+// Load cart from localStorage
 let cart = [];
+const savedCart = localStorage.getItem("cartData");
+if (savedCart) {
+    cart = JSON.parse(savedCart);
+}
+
 const cartIcon = document.getElementById("cart-icon");
 const cartSidebar = document.getElementById("cart");
 const closeCart = document.getElementById("close-cart");
@@ -27,7 +33,7 @@ const cartItemsContainer = document.getElementById("cart-items");
 const totalPriceEl = document.getElementById("total-price");
 const cartCountEl = document.getElementById("cart-count");
 
-// When user clicks cart icon → open cart
+// Open cart
 cartIcon.addEventListener("click", () => {
     cartSidebar.classList.add("open");
 });
@@ -42,23 +48,22 @@ const addCartButtons = document.querySelectorAll(".add-cart-btn");
 
 addCartButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-        let name = btn.dataset.name;
-        let price = parseInt(btn.dataset.price);
+        const name = btn.dataset.name;
+        const price = parseInt(btn.dataset.price);
 
-        // Check if product already exists
-        let existing = cart.find(item => item.name === name);
+        const existingItem = cart.find(item => item.name === name);
 
-        if (existing) {
-            existing.qty += 1;
+        if (existingItem) {
+            existingItem.qty += 1;
         } else {
-            cart.push({ name, price, qty: 1 });
+            cart.push({ name: name, price: price, qty: 1 });
         }
 
         updateCart();
     });
 });
 
-// Update cart UI
+// Update cart UI + save to localStorage
 function updateCart() {
     cartItemsContainer.innerHTML = "";
     let total = 0;
@@ -78,7 +83,12 @@ function updateCart() {
 
     totalPriceEl.textContent = total;
     cartCountEl.textContent = count;
+
+    localStorage.setItem("cartData", JSON.stringify(cart));
 }
+
+
+/* ---------- Category Cards Logic ---------- */
 const categoryCards = document.querySelectorAll(".category-card");
 const productGrids = document.querySelectorAll(".products-grid");
 
@@ -94,25 +104,34 @@ categoryCards.forEach(card => {
             }
         });
 
-        // scroll to products section
         document
             .getElementById("products")
             .scrollIntoView({ behavior: "smooth" });
     });
 });
 
+
+/* ---------- Buy Now ---------- */
 const buyNowBtn = document.getElementById("buy-now");
+
 buyNowBtn.addEventListener("click", () => {
-    if(cart.length===0){
-        alert("Cart is empty");
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
         return;
     }
 
     alert("🎉 Order placed successfully!");
+
     cart = [];
+    localStorage.removeItem("cartData");
     updateCart();
     cartSidebar.classList.remove("open");
 });
+
+
+// Render cart on page load
+updateCart();
+
 
 
 
