@@ -77,9 +77,24 @@ function updateCart() {
             <div class="cart-item">
                 <span>${item.name} (x${item.qty})</span>
                 <span>₹${item.price * item.qty}</span>
+                <button class="remove-btn" data-name="${item.name}">Remove</button>
             </div>
         `;
     });
+    const removeButtons = document.querySelectorAll(".remove-btn");
+       removeButtons.forEach(btn =>{
+          btn.addEventListener("click", () =>{
+          const productName=btn.dataset.name;
+          const item=cart.find(p => p.name === productName);
+        if(item.qty>1){
+            item.qty-=1;
+        }
+        else{
+            cart=cart.filter(p => p.name !== productName);
+        }
+        updateCart();
+    });
+});
 
     totalPriceEl.textContent = total;
     cartCountEl.textContent = count;
