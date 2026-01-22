@@ -7,15 +7,42 @@ menuToggle.addEventListener("click", () => {
 });
 
 
-/* ---------- Contact Form ---------- */
+/* ---------- Feedback Form + localStorage ---------- */
 const contactForm = document.getElementById("contact-form");
 
 contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    alert("Thank you! Your message has been received.");
-    contactForm.reset();
-});
+  e.preventDefault();
 
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  // Basic validation
+  if (name === "" || email === "" || message === "") {
+    alert("Please fill all required fields!");
+    return;
+  }
+
+  // Create feedback object
+  const feedback = {
+    name: name,
+    email: email,
+    message: message,
+    date: new Date().toLocaleString()
+  };
+
+  // Get old feedback list from localStorage (or empty array)
+  let feedbackList = JSON.parse(localStorage.getItem("feedbackList")) || [];
+
+  // Add new feedback into list
+  feedbackList.push(feedback);
+
+  // Save back to localStorage
+  localStorage.setItem("feedbackList", JSON.stringify(feedbackList));
+
+  alert("Thank you! Feedback saved ✅");
+  contactForm.reset();
+});
 
 /* ---------- Cart Logic ---------- */
 
